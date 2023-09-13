@@ -12,18 +12,16 @@ public class JpaMain {
         tx.begin();
 
         try{
-            //저장
-           Team team = new Team();
-           team.setName("TeamA");
-           em.persist(team);
+            Movie movie = new Movie();
+            movie.setName("ada");
+            movie.setActor("dddg");
+            movie.setDirector("dcc");
+            movie.setPrice(10000);
 
-           Member member = new Member();
-           member.setName("member1");
-           member.setTeam(team);
-           em.persist(member);
+            em.persist(movie);
 
-           Member findMember = em.find(Member.class,member.getId());
-           Team findTeam = findMember.getTeam();
+            em.flush();
+            em.clear();
 
             tx.commit();
         }catch (Exception e){
