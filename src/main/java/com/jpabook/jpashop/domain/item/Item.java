@@ -25,4 +25,11 @@ public abstract class Item {
 
     @ManyToMany
     private List<Category> categories = new ArrayList<>();
+
+    // 비즈니스 로직
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
+    }
+
+
 }
